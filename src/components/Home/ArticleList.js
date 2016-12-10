@@ -21,7 +21,7 @@ const ArticleList = props => {
       {
         props.articles.map(article => {
           return (
-            <ArticlePreview article={article}></ArticlePreview>
+            <ArticlePreview key={article.author.username} article={article}></ArticlePreview>
           );
         })
       }
