@@ -1,24 +1,27 @@
 import Header from './Header';
-import Home from './Home/Home';
-import React from 'react';
+import React, {PropTypes} from 'react';
 import { connect } from 'react-redux';
 
 
+const mapStateToProps = state => ({
+  appName: state.common.appName
+});
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <Header appName={this.props.appName} />
-        <Home />
+        {this.props.children}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  appName: state.appName
-});
+App.contextTypes = {
+	router: PropTypes.object.isRequired
+};
+
 
 export default connect(mapStateToProps, () => ({}))(App);
 

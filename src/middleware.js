@@ -19,7 +19,7 @@ const promiseMiddleware = store => next => action => {
 };
 
 function isPromise(v) {
-  return v && typeof v.then === 'function';
+  return v && typeof v.then === 'function'; //helper to check if paramater passed is function 
 }
 
 export {

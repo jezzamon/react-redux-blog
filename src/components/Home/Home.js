@@ -4,10 +4,10 @@ import React from 'react';
 import agent from '../../agent';
 import { connect } from 'react-redux';
 
-const Promise = global.Promise;
+const Promise = global.Promise; /*are we using this?*/
 
 const mapStateToProps = state => ({
-  appName: state.appName
+  appName: state.common.appName
 });
 
 const mapDispatchToProps = dispatch => ({
