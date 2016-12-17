@@ -52,6 +52,14 @@ App.contextTypes = {
 	router: PropTypes.object.isRequired
 };
 
+//App.propTypes = {
+//	onLoad: PropTypes.function.isRequired,
+//	currentUser: PropTypes.string.isRequired,
+//	appName: PropTypes.string.isRequired,
+//	onRedirect: PropTypes.function.isRequired,
+//	children: PropTypes.object.isRequired
+//};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 

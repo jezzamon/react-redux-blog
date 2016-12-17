@@ -3,18 +3,16 @@ import { promiseMiddleware } from './middleware';
 import auth from './reducers/auth';
 import common from './reducers/common';
 import home from './reducers/home';
-
-
-const defaultState = {
-  appName: 'conduit',
-  articles: null
-};
+import settings from './reducers/settings';
+import article from './reducers/article';
 
 
 const reducer = combineReducers({
+	article,
 	auth,
 	common,
-	home
+	home,
+	settings
 	});
 
 const middleware = applyMiddleware(promiseMiddleware);

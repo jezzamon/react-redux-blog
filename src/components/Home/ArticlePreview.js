@@ -1,19 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router'
 
-const ArticlePreview = (props) => {
+const ArticlePreview = (props) => { //was props
   const article = props.article;
 
   return (
     <div className="article-preview">
       <div className="article-meta">
-        <a>
-          <img alt="author" src={article.author.image} />
-        </a>
-
+        <Link to={`@${article.author.username}`}>
+					<img alt="author" src={article.author.image} />
+        </Link>
+        
         <div className="info">
-          <a className="author">
+          <Link className="author" to={`@${article.author.username}`}>
             {article.author.username}
-          </a>
+          </Link>
           <span className="date">
             {new Date(article.createdAt).toDateString()}
           </span>
@@ -22,12 +23,12 @@ const ArticlePreview = (props) => {
         <div className="pull-xs-right">
           <button
             className="btn btn-sm btn-outline-primary">
-            <i className="ion-heart"></i> {article.favoritesCount}
+            <i className="ion-heart" /> {article.favoritesCount}
           </button>
         </div>
       </div>
 
-      <a to={`article/${article.slug}`} className="preview-link">
+      <Link to={`article/${article.slug}`} className="preview-link">
         <h1>{article.title}</h1>
         <p>{article.description}</p>
         <span>Read more...</span>
@@ -38,13 +39,13 @@ const ArticlePreview = (props) => {
                 <li className="tag-default tag-pill tag-outline" key={tag}>
                   {tag}
                 </li>
-              )
+              );
             })
           }
         </ul>
-      </a>
+      </Link>
     </div>
   );
-}
+};
 
 export default ArticlePreview;
