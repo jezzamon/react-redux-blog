@@ -9,24 +9,41 @@ const responseBody = res => res.body;
 
 let token = null;
 
+const tokenPlugin = (req) => {
+	if (token) {
+		req.set('authorization', `Token ${token}`);
+	}
+};
+
 const requests = {
+  del: url =>
+    superagent.del(`${API_ROOT}${url}`).then(responseBody),
   get: url =>
-    superagent.get(`${API_ROOT}${url}`).then(responseBody),
-	post: (url, body) =>
-	  superagent.post(`${API_ROOT}${url}`, body).then(responseBody)
+    superagent.get(`${API_ROOT}${url}`).use(tokenPlugin).then(responseBody),
+  post: (url, body) =>
+    superagent.post(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody),
+  put: (url, body) =>
+    superagent.put(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody)
 };
 
 const Articles = {
   all: page =>
     requests.get(`/articles?limit=10`),
-	get: slug =>
-	  requests.get(`/articles/${slug}`)
+  del: slug =>
+    requests.del(`/articles/${slug}`),
+  get: slug =>
+    requests.get(`/articles/${slug}`)
 };
 
 const Comments = {
-	forArticle: slug =>
-	  requests.get(`/articles/${slug}/comments`)
-}
+  create: (slug, comment) =>
+    requests.post(`/articles/${slug}/comments`, { comment }),
+	delete: (slug, commentId) =>
+	  requests.del(`/articles/${slug}/comments/${commentId}`),
+  forArticle: slug =>
+    requests.get(`/articles/${slug}/comments`)
+};
+
 
 const Auth = {
 	current: () =>
@@ -45,5 +62,5 @@ export default {
   Articles, 
 	Auth,
 	Comments,
-	setToken: _token => { token = _token }
+	setToken: _token => { token = _token; }
 };

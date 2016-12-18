@@ -31,9 +31,9 @@ class App extends React.Component {
 	}
 	
 	componentWillReceiveProps(nextProps) {
-		if(nextProps.redirectTo) {
+		if(nextProps.redirectTo) { //if redirect is not null
 			this.context.router.replace(nextProps.redirectTo);
-			this.props.onRedirect();
+			this.props.onRedirect();  //will set redirect to null in reducer
 		}
 	}
   render() {
@@ -41,8 +41,11 @@ class App extends React.Component {
       <div>
         <Header 
 					currentUser={this.props.currentUser}
-					appName={this.props.appName} />
+					appName={this.props.appName} 
+        />
+       
         {this.props.children}
+      
       </div>
     );
   }
