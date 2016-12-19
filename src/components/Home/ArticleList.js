@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticlePreview from './ArticlePreview'
+import ArticlePreview from './ArticlePreview';
 
 const ArticleList = props => {
   if (!props.articles) {
@@ -21,7 +21,7 @@ const ArticleList = props => {
       {
         props.articles.map(article => {
           return (
-            <ArticlePreview key={article.author.username} article={article}></ArticlePreview>
+            <ArticlePreview key={article.author.username} article={article} />
           );
         })
       }
