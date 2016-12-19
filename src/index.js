@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
+
 import App from './components/App';
 import Article from './components/Article'; //will look for index.js
 import Home from './components/Home/Home';
