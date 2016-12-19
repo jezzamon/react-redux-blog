@@ -1,4 +1,4 @@
-import ArticleList from './ArticleList';
+import ArticleList from './Home/ArticleList';
 import React from 'react';
 import { Link } from 'react-router';
 import agent from '../agent';
@@ -23,6 +23,57 @@ const mapDispatchToProps = dispatch => ({
   onUnload: () => dispatch({ type: 'PROFILE_PAGE_UNLOADED' })
 });
 
+//Helper Components
+const EditProfileSettings = props => {
+  if (props.isUser) {
+    return (
+      <Link
+        to="settings"
+        className="btn btn-sm btn-outline-secondary action-btn">
+        <i className="ion-gear-a"/> Edit Profile Settings
+      </Link>
+    );
+  }
+  return null;
+};
+
+//eslint-disable-next-line
+const FollowUserButton = props => {
+	if (!props.user) {
+		return null;
+	}
+	
+	let classes = 'btn btn-sm action-btn';
+	if (props.user.following) {
+		classes += ' btn-secondary';
+		
+	} else {
+		classes += ' btn-outline-secondary';
+	}
+	
+	const handleClick = ev => {
+		ev.preventDefault();
+		if (props.user.following) {
+			props.unfollow(props.user.username);
+		} else {
+			props.follow(props.user.username);
+		}
+	};
+	
+	return (
+		<button
+			style={{color: 'white'}}
+		  className={classes}
+		  onClick={handleClick}>
+		  <i className="ion-plus-round"/>
+		  &nbsp;
+		  {props.user.following ? 'Unfollow' : 'Follow'} {props.user.username}
+		</button>
+	);
+};
+
+
+//eslint-disable-next-line
 class Profile extends React.Component {
   componentWillMount() {
     this.props.onLoad(Promise.all([
@@ -67,7 +118,9 @@ class Profile extends React.Component {
       this.props.profile.username === this.props.currentUser.username;
 
     return (
-      <div className="profile-page">
+			<div className="profile-page">
+			<div className="page-header header-filter" data-parallax="active"></div>
+      <div className="profile-page main main-raised">
 
         <div className="user-info">
           <div className="container">
@@ -107,6 +160,7 @@ class Profile extends React.Component {
           </div>
         </div>
 
+      </div>
       </div>
     );
   }

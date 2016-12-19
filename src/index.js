@@ -8,6 +8,7 @@ import App from './components/App';
 import Article from './components/Article'; //will look for index.js
 import Home from './components/Home/Home';
 import Login from './components/Login';
+import Profile from './components/Profile';
 import Register from './components/Register';
 import Settings from './components/Settings';
 import store from './store';
@@ -21,6 +22,7 @@ ReactDOM.render((
         <Route path="register" component={Register} />
         <Route path="settings" component={Settings} />
         <Route path="article/:id" component={Article} />
+        <Route path="@:username" component={Profile} />
       </Route>
     </Router>
   </Provider>
