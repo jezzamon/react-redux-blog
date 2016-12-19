@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
   ...state.articleList,
   currentUser: state.common.currentUser,
   profile: state.profile
-});
+});  //this state will be exported to ProfileFavorites
 
 const mapDispatchToProps = dispatch => ({
   onFollow: username => dispatch({

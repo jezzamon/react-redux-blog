@@ -5,6 +5,8 @@ const superagent = superagentPromise(_superagent, global.Promise);
 
 const API_ROOT = 'https://conduit.productionready.io/api';
 
+const encode = encodeURIComponent;
+
 const responseBody = res => res.body;
 
 let token = null;
@@ -34,7 +36,7 @@ const Articles = {
   del: slug =>
     requests.del(`/articles/${slug}`),
 	favoritedBy: (author, page) =>
-	  requests.get(`/articles?favorited=${encodeURIComponent(author)}&limit=5`),
+    requests.get(`/articles?favorited=${encode(author)}&limit=5`),
   get: slug =>
     requests.get(`/articles/${slug}`)
 };

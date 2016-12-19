@@ -5,7 +5,7 @@ const promiseMiddleware = store => next => action => {
     store.dispatch({ type: 'ASYNC_START', subtype: action.type});
 		action.payload.then(
       res => {
-//				console.log("middleware response",res)
+				console.log("middleware response",res)
         action.payload = res;
         store.dispatch(action);
       },
