@@ -52,17 +52,18 @@ class Login extends React.Component {
 								<ListErrors errors={this.props.errors} />
 
 								<form onSubmit={this.submitForm(email,password)}>
+										
 										<fieldset>
 
-											<fieldset className="form-group">
+											<fieldset className="form-group label-floating">
+												<label className="control-label">Email</label>
 											<input
 												className="form-control form-control-lg"
 												type="email"
-												placeholder="Email" 
 												value={email}
 												onChange={this.changeEmail}/>
 											</fieldset>
-
+											
 											<fieldset className="form-group">
 												<input
 													className="form-control form-control-lg"

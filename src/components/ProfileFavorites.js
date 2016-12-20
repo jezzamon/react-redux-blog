@@ -25,7 +25,7 @@ class ProfileFavorites extends Profile {
 	componentWillMount() {
 		this.props.onLoad(Promise.all([
 			agent.Profile.get(this.props.params.username),
-			agent.Articles.byAuthor(this.props.params.username)
+			agent.Articles.favoritedBy(this.props.params.username)
 		]));
 	}
 	

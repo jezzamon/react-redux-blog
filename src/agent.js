@@ -12,6 +12,7 @@ const responseBody = res => res.body;
 let token = null;
 
 const tokenPlugin = (req) => {
+	console.log("token?", token)
 	if (token) {
 		req.set('authorization', `Token ${token}`);
 	}
@@ -38,7 +39,7 @@ const Articles = {
 	favoritedBy: (author, page) =>
     requests.get(`/articles?favorited=${encode(author)}&limit=5`),
 	feed: () =>
-	  requests.get('/articles/feed?limit=10'),
+	  requests.get(`/articles/feed?limit=10&offset=0`),
   get: slug =>
     requests.get(`/articles/${slug}`)
 };

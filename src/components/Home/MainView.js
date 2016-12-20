@@ -3,7 +3,7 @@ import React from 'react';
 import agent from '../../agent';
 import { connect } from 'react-redux';
 
-//helper functions/components
+//helper functions/components for the tabs
 const YourFeedTab = props => {
 	if (props.token) {
 		const clickHandler = ev => {
