@@ -32,17 +32,20 @@ const requests = {
 const Articles = {
   all: page =>
     requests.get(`/articles?limit=10`),
-	byAuthor: (author, page) =>
-	  requests.get(`/articles?author=${encodeURIComponent(author)}&limit=5`),
+  byAuthor: (author, page) =>
+    requests.get(`/articles?author=${encodeURIComponent(author)}&limit=5`),
+  byTag: (tag, page) =>
+    requests.get(`/articles?tag=${encodeURIComponent(tag)}&limit=10`),
   del: slug =>
     requests.del(`/articles/${slug}`),
-	favoritedBy: (author, page) =>
-    requests.get(`/articles?favorited=${encode(author)}&limit=5`),
-	feed: () =>
-	  requests.get(`/articles/feed?limit=10&offset=0`),
+  favoritedBy: (author, page) =>
+    requests.get(`/articles?favorited=${encodeURIComponent(author)}&limit=5`),
+  feed: () =>
+    requests.get('/articles/feed?limit=10'),
   get: slug =>
     requests.get(`/articles/${slug}`)
 };
+
 
 const Comments = {
   create: (slug, comment) =>
@@ -53,6 +56,9 @@ const Comments = {
     requests.get(`/articles/${slug}/comments`)
 };
 
+const Tags = {
+  getAll: () => requests.get('/tags')
+};
 
 const Auth = {
 	current: () =>
@@ -72,7 +78,7 @@ const Profile = {
 	  requests.get(`/profiles/${username}`),
 	unfollow: username => 
 	  requests.del(`/profiles/${username}/follow`)
-}
+};
 
 
 
@@ -81,5 +87,6 @@ export default {
 	Auth,
 	Comments,
 	Profile,
+	Tags,
 	setToken: _token => { token = _token; }
 };

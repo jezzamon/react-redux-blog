@@ -43,6 +43,20 @@ const GlobalFeedTab = props => {
 	);
 };
 
+const TagFilterTab = props => {
+  if (!props.tag) {
+    return null;
+  }
+
+  return (
+    <li className="nav-item">
+      <a href="" className="nav-link active">
+        <i className="ion-pound"/> {props.tag}
+      </a>
+    </li>
+  );
+};
+
 
 const mapStateToProps = state => ({
   articles: state.articleList.articles,
@@ -61,21 +75,24 @@ const MainView = props => {
       <div className="feed-toggle">
         <ul className="nav nav-pills outline-active">
 
-        <YourFeedTab
-        	token={props.token}
-        	tab={props.tab}
-        	onTabClick={props.onTabClick} />
-        	
-        <GlobalFeedTab tab={props.tab} onTabClick={props.onTabClick} />
+          <YourFeedTab
+            token={props.token}
+            tab={props.tab}
+            onTabClick={props.onTabClick} />
+
+          <GlobalFeedTab tab={props.tab} onTabClick={props.onTabClick} />
+
+          <TagFilterTab tag={props.tag} />
 
         </ul>
       </div>
 
-	  {<ArticleList
-        articles={props.articles} />}
+      <ArticleList
+        articles={props.articles} />
     </div>
   );
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainView);
 
