@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 //helper functions/components for the tabs
 const YourFeedTab = props => {
+	//will only show if there is a token
 	if (props.token) {
 		const clickHandler = ev => {
 			ev.preventDefault();
@@ -22,7 +23,6 @@ const YourFeedTab = props => {
 		);
 	}
 	
-	//return null if no token
 	return null;
 };
 

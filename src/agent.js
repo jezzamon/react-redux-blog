@@ -12,7 +12,7 @@ const responseBody = res => res.body;
 let token = null;
 
 const tokenPlugin = (req) => {
-	console.log("token?", token)
+	console.log("token?", token);
 	if (token) {
 		req.set('authorization', `Token ${token}`);
 	}
@@ -30,6 +30,7 @@ const requests = {
 };
 
 const limit = (count, p) => `limit=${count}&offset=${p ? p * count : 0}`;
+const omitSlug = article => Object.assign({}, article, { slug: undefined });
 
 const Articles = {
   all: page =>
@@ -49,7 +50,11 @@ const Articles = {
   get: slug =>
     requests.get(`/articles/${slug}`),
 	unfavorite: slug =>
-    requests.del(`/articles/${slug}/favorite`)
+    requests.del(`/articles/${slug}/favorite`),
+	update: article =>
+    requests.put(`/articles/${article.slug}`, { article: omitSlug(article) }),
+  create: article =>
+    requests.post('/articles', { article })
 };
 
 
