@@ -8,7 +8,7 @@ const NOT_FAVORITED_CLASS = 'btn btn-sm btn-outline-primary';
 
 const mapDispatchToProps = dispatch => ({
 	favorite: slug =>
-	  dispatch({ type: 'ARTICLE_FAVORITED,', payload: agent.Articles.favorite(slug)}),
+	  dispatch({ type: 'ARTICLE_FAVORITED', payload: agent.Articles.favorite(slug)}),
 	unfavorite: slug =>
 	  dispatch({ type: 'ARTICLE_UNFAVORITED', payload: agent.Articles.unfavorite(slug)})
 });
@@ -22,12 +22,12 @@ const ArticlePreview = (props) => { //was props
 	const handleClick = ev => {
 		ev.preventDefault();
 		if (article.favorited) {
-			this.props.unfavorite(article.slug);
+			props.unfavorite(props.article.slug);
 		} else {
-			this.props.favorite(article.slug);
+			props.favorite(props.article.slug);
 		}
 	};
-
+	
   return (
     <div className="article-preview">
       <div className="article-meta">
@@ -46,7 +46,8 @@ const ArticlePreview = (props) => { //was props
 
         <div className="pull-xs-right">
           <button
-            className="btn btn-sm btn-outline-primary">
+            className={favoriteButtonClass}
+            onClick={handleClick}>
             <i className="ion-heart" /> {article.favoritesCount}
           </button>
         </div>
@@ -72,4 +73,4 @@ const ArticlePreview = (props) => { //was props
   );
 };
 
-export default ArticlePreview;
+export default connect(() => ({}), mapDispatchToProps)(ArticlePreview);

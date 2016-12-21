@@ -78,6 +78,7 @@ const mapDispatchToProps = dispatch => ({
 
 const MainView = props => {
 	const onSetPage = page => props.onSetpage(props.tab, page);
+	console.log("main view props?", props)
   return (
     <div className="col-md-9">
       <div className="feed-toggle">

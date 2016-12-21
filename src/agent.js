@@ -20,7 +20,7 @@ const tokenPlugin = (req) => {
 
 const requests = {
   del: url =>
-    superagent.del(`${API_ROOT}${url}`).then(responseBody),
+    superagent.del(`${API_ROOT}${url}`).use(tokenPlugin).then(responseBody),
   get: url =>
     superagent.get(`${API_ROOT}${url}`).use(tokenPlugin).then(responseBody),
   post: (url, body) =>

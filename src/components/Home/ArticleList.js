@@ -16,12 +16,14 @@ const ArticleList = props => {
       </div>
     );
   }
-
+	console.log("ArticleList props", props);
   return (
+		
     <div>
       {
         props.articles.map(article => {
           return (
+						
             <ArticlePreview key={article.slug} article={article} />
           );
         })
