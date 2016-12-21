@@ -2,9 +2,24 @@
 
 export default (state = {}, action) => {
   switch (action.type) {
+		case 'ARTICLE_FAVORITED':
+		case 'ARTICLE_UNFAVORITED':
+			return {
+				...state,
+				articles: state.articles.map(article => {
+					if (article.slug === action.payload.article.slug) {
+						return {
+							...article,
+							favorited: action.payload.article.favorited,
+							favoritesCount: action.payload.article.favoritesCount
+						};
+					}
+				})
+			};
     case 'HOME_PAGE_LOADED':
       return {
         ...state,
+				tags: action.payload[0].tags,
         articles: action.payload[1].articles,
         articlesCount: action.payload[1].articlesCount,
         tab: action.tab,

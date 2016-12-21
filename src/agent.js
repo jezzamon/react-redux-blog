@@ -40,12 +40,16 @@ const Articles = {
     requests.get(`/articles?tag=${encodeURIComponent(tag)}&limit=10`),
   del: slug =>
     requests.del(`/articles/${slug}`),
+	favorite: slug =>
+    requests.post(`/articles/${slug}/favorite`),
   favoritedBy: (author, page) =>
     requests.get(`/articles?favorited=${encode(author)}&${limit(10, page)}`),
   feed: page =>
     requests.get(`/articles/feed?${limit(10, page)}`),
   get: slug =>
-    requests.get(`/articles/${slug}`)
+    requests.get(`/articles/${slug}`),
+	unfavorite: slug =>
+    requests.del(`/articles/${slug}/favorite`)
 };
 
 
