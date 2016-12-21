@@ -2,6 +2,8 @@ import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+//import './assets/css/material-kit.css';
 
 
 import App from './components/App';

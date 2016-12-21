@@ -61,15 +61,23 @@ const TagFilterTab = props => {
 const mapStateToProps = state => ({
   articles: state.articleList.articles,
 	token: state.common.token,
-	tab: state.articleList.tab
+	tab: state.articleList.tab,
+	articlesCount: state.articleList.articlesCount,
+	currentPage: state.articleList.currentPage
 });
 
 const mapDispatchToProps = dispatch => ({
+	onSetPage: (tab, p) => dispatch({
+    type: 'SET_PAGE',
+    page: p,
+    payload: tab === 'feed' ? agent.Articles.feed(p) : agent.Articles.all(p)
+  }),
 	onTabClick: (tab, payload) => dispatch({ type: 'CHANGE_TAB', tab, payload})
 });
 
 
 const MainView = props => {
+	const onSetPage = page => props.onSetpage(props.tab, page);
   return (
     <div className="col-md-9">
       <div className="feed-toggle">
@@ -88,7 +96,10 @@ const MainView = props => {
       </div>
 
       <ArticleList
-        articles={props.articles} />
+        articles={props.articles}
+        articlesCount={props.articlesCount}
+        currentPage={props.currentPage}
+        onSetPage={onSetPage} />
     </div>
   );
 };

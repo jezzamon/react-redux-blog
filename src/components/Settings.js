@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: 'SETTINGS_SAVED', payload: agent.Auth.save(user) })
 });
 
+//SettingsForm only Higher level component using constructor, why? Because we are initializing internal state here.
 class SettingsForm extends React.Component {
 	constructor() {
 		super();
