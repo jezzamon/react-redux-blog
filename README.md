@@ -1,23 +1,11 @@
-# ![React + Redux Example App](project-logo.png)
 
-> Example React + Redux codebase that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) spec and API.
 
 # Redux codebase containing real world examples (CRUD, auth, advanced patterns, etc)
-Originally created for this [GH issue](https://github.com/reactjs/redux/issues/1353). The codebase is now feature complete and the RFC is open. **Your input is greatly appreciated; please submit bug fixes via pull requests & feedback via issues**.
+This is based on the medium clone example of at Thinkster.  It covers some advanced patterns and examples of pagination, tags, and using jwt with localstorage.
 
-We're currently working on some docs for the codebase (explaining where functionality is located, how it works, etc) but most things should be self explanatory if you have a minimal understanding of React/Redux.
+## API
 
-## Getting started
-
-You can view a live demo over at https://react-redux.realworld.io/
-
-To get the frontend running locally:
-
-- Clone this repo
-- `npm install` to install all req'd dependencies
-- `npm run watch` to have webpack bundle the JS files into /bin/main.js, then run `npm start`
-
-For convenience, we have a live API server running at https://conduit.productionready.io/api for the application to make requests against. You can view [the API spec here](https://github.com/GoThinkster/productionready/blob/master/API.md) which contains all routes & responses for the server. We'll release the backend code in a few weeks should anyone be interested in it.
+ Live API server running at https://conduit.productionready.io/api for the application to make requests against. You can view [the API spec here](https://github.com/GoThinkster/productionready/blob/master/API.md) which contains all routes & responses for the server. 
 
 ## Functionality overview
 
