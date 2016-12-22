@@ -7,7 +7,7 @@ const Banner = ({ appName }) => {
         <h1 className="logo-font">
           {appName.toLowerCase()}
         </h1>
-        <p>A place to share your knowledge.</p>
+        <p>A react-redux front end blogging platform.</p>
       </div>
     </div>
   );

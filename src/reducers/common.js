@@ -1,5 +1,5 @@
 const defaultState = {
-  appName: 'Conduit',
+  appName: 'Jezzamon blog',
 	token: null
 };
 
