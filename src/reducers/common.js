@@ -17,6 +17,11 @@ export default (state = defaultState, action) => {
 			return {...state, redirectTo: null};
 		case 'LOGOUT':
 			return {...state, redirectTo: '/', token: null, currentUser: null};
+		case 'ARTICLE_SUBMITTED':
+			return {
+				...state, 
+				redirectTo: "article/" + action.payload.article.slug
+			};
 		case 'SETTINGS_SAVED':
 			return {
 				...state,
@@ -35,7 +40,7 @@ export default (state = defaultState, action) => {
 			return {
 				...state,
 				redirectTo: '/'
-			}
+			};
 	} 
 	return state;
 };

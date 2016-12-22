@@ -4,7 +4,6 @@ export default (state = {}, action) => {
   switch (action.type) {
 		case 'ARTICLE_FAVORITED':
 		case 'ARTICLE_UNFAVORITED':
-			console.log("action payload article slug",action.payload.article.slug)
 			return {
 				...state,
 				articles: state.articles.map(article => {

@@ -30,7 +30,7 @@ ReactDOM.render((
         <Route path="@:username" component={Profile} />
 				<Route path="@:username/favorites" component={ProfileFavorites} />
 				<Route path="editor" component={Editor} />
-				<Route path="editor/slug" component={Editor} />
+				<Route path="editor/:slug" component={Editor} />
       </Route>
     </Router>
   </Provider>
