@@ -8,6 +8,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import App from './components/App';
 import Article from './components/Article'; //will look for index.js
+import Editor from './components/Editor';
 import Home from './components/Home/Home';
 import Login from './components/Login';
 import Profile from './components/Profile';
@@ -28,6 +29,8 @@ ReactDOM.render((
         <Route path="article/:id" component={Article} />
         <Route path="@:username" component={Profile} />
 				<Route path="@:username/favorites" component={ProfileFavorites} />
+				<Route path="editor" component={Editor} />
+				<Route path="editor/slug" component={Editor} />
       </Route>
     </Router>
   </Provider>

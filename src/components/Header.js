@@ -74,7 +74,7 @@ class Header extends React.Component {
   render() {
     return (
 			
-      <nav className="navbar navbar-success navbar-fixed-top navbar-color-on-scroll navbar-transparent">
+      <nav className="navbar navbar-default">
         
         <div className="container">
 

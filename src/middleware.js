@@ -35,7 +35,7 @@ const localStorageMiddleware = store => next => action => {
 			console.log("set token", action.payload.user.token);
 		}
 	} else if (action.type === 'LOGOUT') {
-		window.localStoreage.setItem('jwt', '');
+		window.localStorage.setItem('jwt', '');
 		agent.setToken(null);
 	}
 	
