@@ -7,10 +7,10 @@ This is based on the medium clone example of at Thinkster.  It covers some advan
 
  Live API server running at https://conduit.productionready.io/api for the application to make requests against. You can view [the API spec here](https://github.com/GoThinkster/productionready/blob/master/API.md) which contains all routes & responses for the server. 
 
-## Functionality overview
+<!--## Functionality overview
 
-The example application is a social blogging site (i.e. a Medium.com clone) called "Conduit". It uses a custom API for all requests, including authentication. You can view a live demo over at https://redux.productionready.io/
-
+The example application is a social blogging site (i.e. a Medium.com clone) called "Jezzamon blog". It uses a custom API for all requests, including authentication. You can view a live demo over at https://jezzamon/react-redux-blog/
+-->
 **General functionality:**
 
 - Authenticate users via JWT (login/signup pages + logout button on settings page)
