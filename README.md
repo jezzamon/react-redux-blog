@@ -5,7 +5,7 @@ This is based on the medium clone example of at Thinkster.  It covers some advan
 
 ## API
 
- Live API server running at https://conduit.productionready.io/api for the application to make requests against. You can view [the API spec here](https://github.com/GoThinkster/productionready/blob/master/API.md) which contains all routes & responses for the server. 
+ The API is being rewritten on MongoDB, it has been decoupled from the front end site for the time being.
 
 <!--## Functionality overview
 
